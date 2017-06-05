@@ -8,9 +8,6 @@
  * @license        http://help.kecheng8.com/usersguide/license.html
  * @link           http://www.kecheng8.com
  */
-
-
-
 require_once(dirname(__FILE__)."/config.php");
 AjaxHead();
 $myhtml = UnicodeUrl2Gbk(stripslashes($myhtml));

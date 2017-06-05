@@ -1,8 +1,8 @@
 <?php
 /**
- * ÎÄµµ¹ÜÀí
+ * ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½
  *
- * @version        $Id: archives_do.php 1 13:52 2010Äê7ÔÂ9ÈÕZ tianya $
+ * @version        $Id: archives_do.php 1 13:52 2010ï¿½ï¿½7ï¿½ï¿½9ï¿½ï¿½Z tianya $
  * @package        kecheng8.Member
  * @copyright      Copyright (c) 2007 - 2010, kecheng8, Inc.
  * @license        http://help.kecheng8.com/usersguide/license.html
@@ -16,25 +16,27 @@ $channelid = isset($channelid) && is_numeric($channelid) ? $channelid : 1;
 
 /*-----------------
 function delStow()
-É¾³ýÊÕ²Ø
+É¾ï¿½ï¿½ï¿½Õ²ï¿½
 ------------------*/
+
+
 if($dopost=="delStow")
 {
     CheckRank(0,0);
     $type=empty($type)? 'sys' : trim($type);
     $ENV_GOBACK_URL = empty($_COOKIE['ENV_GOBACK_URL']) ? "mystow.php" : $_COOKIE['ENV_GOBACK_URL'];
     $dsql->ExecuteNoneQuery("DELETE FROM #@__member_stow WHERE aid='$aid' AND mid='".$cfg_ml->M_ID."' AND type='$type';");
-    //¸üÐÂÓÃ»§Í³¼Æ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Í³ï¿½ï¿½
     $row = $dsql->GetOne("SELECT COUNT(*) AS nums FROM `#@__member_stow` WHERE `mid`='".$cfg_ml->M_ID."' ");
     $dsql->ExecuteNoneQuery("UPDATE #@__member_tj SET `stow`='$row[nums]' WHERE `mid`='".$cfg_ml->M_ID."'");
 
-    ShowMsg("³É¹¦É¾³ýÒ»ÌõÊÕ²Ø¼ÇÂ¼£¡",$ENV_GOBACK_URL);
+    ShowMsg("ï¿½É¹ï¿½É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Õ²Ø¼ï¿½Â¼ï¿½ï¿½",$ENV_GOBACK_URL);
     exit();
 }
 
 /*-----------------
 function addArchives()
-Ìí¼ÓÍ¶¸å
+ï¿½ï¿½ï¿½Í¶ï¿½ï¿½
 ------------------*/
 else if($dopost=="addArc")
 {
@@ -55,7 +57,7 @@ else if($dopost=="addArc")
         $row = $dsql->GetOne("SELECT useraddcon FROM `#@__channeltype` WHERE id='$channelid' ");
         if(!is_array($row))
         {
-            ShowMsg("Ä£ÐÍ²ÎÊý´íÎó!","-1");
+            ShowMsg("Ä£ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!","-1");
             exit();
         }
         $addcon = $row['useraddcon'];
@@ -71,7 +73,7 @@ else if($dopost=="addArc")
 
 /*-----------------
 function editArchives()
-ÐÞ¸ÄÍ¶¸å
+ï¿½Þ¸ï¿½Í¶ï¿½ï¿½
 ------------------*/
 else if($dopost=="edit")
 {
@@ -93,7 +95,7 @@ else if($dopost=="edit")
         $row = $dsql->GetOne("SELECT usereditcon FROM `#@__channeltype` WHERE id='$channelid' ");
         if(!is_array($row))
         {
-            ShowMsg("²ÎÊý´íÎó!","-1");
+            ShowMsg("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!","-1");
             exit();
         }
         $edit = $row['usereditcon'];
@@ -109,7 +111,7 @@ else if($dopost=="edit")
 
 /*--------------------
 function delArchives()
-É¾³ýÎÄÕÂ
+É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 --------------------*/
 else if($dopost=="delArc")
 {
@@ -124,7 +126,7 @@ else if($dopost=="delArc")
     $row = $dsql->GetOne($equery);
     if(!is_array($row))
     {
-        ShowMsg("ÄãÃ»ÓÐÈ¨ÏÞÉ¾³ýÕâÆªÎÄµµ£¡","-1");
+        ShowMsg("ï¿½ï¿½Ã»ï¿½ï¿½È¨ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Æªï¿½Äµï¿½ï¿½ï¿½","-1");
         exit();
     }
     if(trim($row['maintable'])=='') $row['maintable'] = '#@__archives';
@@ -139,7 +141,7 @@ else if($dopost=="delArc")
     $arr = $dsql->GetOne($equery);
     if(!is_array($arr))
     {
-        ShowMsg("ÄãÃ»ÓÐÈ¨ÏÞÉ¾³ýÕâÆªÎÄµµ£¡","-1");
+        ShowMsg("ï¿½ï¿½Ã»ï¿½ï¿½È¨ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Æªï¿½Äµï¿½ï¿½ï¿½","-1");
         exit();
     }
 
@@ -149,7 +151,7 @@ else if($dopost=="delArc")
         $maxtime = $cfg_mb_editday * 24 *3600;
         if($dtime - $row['senddate'] > $maxtime)
         {
-            ShowMsg("ÕâÆªÎÄµµÒÑ¾­Ëø¶¨£¬Äã²»ÄÜÔÙÉ¾³ýËü£¡","-1");
+            ShowMsg("ï¿½ï¿½Æªï¿½Äµï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã²»ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","-1");
             exit();
         }
     }
@@ -157,11 +159,11 @@ else if($dopost=="delArc")
     $channelid = $row['channel'];
     $row['litpic'] = (isset($arr['litpic']) ? $arr['litpic'] : '');
 
-    //É¾³ýÎÄµµ
+    //É¾ï¿½ï¿½ï¿½Äµï¿½
     if($row['issystem']!=-1) $rs = DelArc($aid);
     else $rs = DelArcSg($aid);
 
-    //É¾³ýËõÂÔÍ¼
+    //É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
     if(trim($row['litpic'])!='' && preg_match("#^".$cfg_user_dir."/{$cfg_ml->M_ID}#", $row['litpic']))
     {
         $dsql->ExecuteNoneQuery("DELETE FROM `#@__uploads` WHERE url LIKE '{$row['litpic']}' AND mid='{$cfg_ml->M_ID}' ");
@@ -174,16 +176,16 @@ else if($dopost=="delArc")
     }
     if($rs)
     {
-        //¸üÐÂÓÃ»§¼ÇÂ¼
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼
         countArchives($channelid);
-        //¿Û³ý»ý·Ö
+        //ï¿½Û³ï¿½ï¿½ï¿½ï¿½ï¿½
         $dsql->ExecuteNoneQuery("Update `#@__member` set scores=scores-{$cfg_sendarc_scores} where mid='".$cfg_ml->M_ID."' And (scores-{$cfg_sendarc_scores}) > 0; ");
-        ShowMsg("³É¹¦É¾³ýÒ»ÆªÎÄµµ£¡",$ENV_GOBACK_URL);
+        ShowMsg("ï¿½É¹ï¿½É¾ï¿½ï¿½Ò»Æªï¿½Äµï¿½ï¿½ï¿½",$ENV_GOBACK_URL);
         exit();
     }
     else
     {
-        ShowMsg("É¾³ýÎÄµµÊ§°Ü£¡",$ENV_GOBACK_URL);
+        ShowMsg("É¾ï¿½ï¿½ï¿½Äµï¿½Ê§ï¿½Ü£ï¿½",$ENV_GOBACK_URL);
       exit();
     }
     exit();
@@ -191,7 +193,7 @@ else if($dopost=="delArc")
 
 /*-----------------
 function viewArchives()
-²é¿´ÎÄÕÂ
+ï¿½é¿´ï¿½ï¿½ï¿½ï¿½
 ------------------*/
 else if($dopost=="viewArchives")
 {
@@ -205,7 +207,7 @@ else if($dopost=="viewArchives")
 
 /*--------------
 function DelUploads()
-É¾³ýÉÏ´«µÄ¸½¼þ
+É¾ï¿½ï¿½ï¿½Ï´ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
 ----------------*/
 else if($dopost=="delUploads")
 {
@@ -247,6 +249,6 @@ else if($dopost=="delUploads")
             }
         }
     }
-    ShowMsg("³É¹¦É¾³ý $tj ¸ö¸½¼þ£¡",$ENV_GOBACK_URL);
+    ShowMsg("ï¿½É¹ï¿½É¾ï¿½ï¿½ $tj ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",$ENV_GOBACK_URL);
     exit();
 }
